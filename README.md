@@ -104,10 +104,37 @@ pip3 install matplotlib
 
 Answer the following questions:
 - Add the plots to your report and explain them (describe what you see)
-- What is the effect of the PID according to the plots, how each part of the PID affects the control command?
+     ![image](https://user-images.githubusercontent.com/28135189/228315598-1bb4b3da-4d0f-46e3-9d73-366b14feb9c3.png)
+The above figure shows the steering error and steering output.The Error Steering is low with few disturbances in some parts. The error becomes large when the vehicle was avoiding a car in front of it and had to change its path and take a right turn.
+          
+  ![image](https://user-images.githubusercontent.com/28135189/228316460-badc513a-71dd-4663-b618-8c834369f955.png)
+For most part there is not much oscillation in throttle values, however there is some osciallation in error throttle towards rge end which will not provide smooth experience requires further tuning.
+       
+                
+- What is the effect of the PID according to the plots, how each part of the PID affects the control command?     
+  The PID controller doesn't overshoot and minimizes the error in a short range of time. PID controller can minimize the mistake between expect and actual speed / yaw angle of the vehicle by producing control output. Here I have adjusted the PID parameters to keep the drive smooth.      
+  In PID P  is a proportional controller that provides an output proportional to the current error.      
+  I is an integral controller that helps to reduce time to minimize the cross track error.            
+  D is a derivative controller for ease of the error rate to reduce the overshooting and improves the stability of the system by compensation increasing the derivative, gain increases the speed of the response.              
+  
+                                        
 - How would you design a way to automatically tune the PID parameters?
-- PID controller is a model free controller, i.e. it does not use a model of the car. Could you explain the pros and cons of this type of controller?
-- (Optional) What would you do to improve the PID controller?
+   Here I have tuned the PID parameters by trials and errors.     
+   We can Implement the twiddle algorithm to optimize set of parameters which was covered in the course. By offering initial values for the PID parameters and probing intervals we can run the PID controller and analyze the control output and tweaking the parameters up and down by examining the outcome, calculates the new quality marker and replaces the parameters only if the result is better.
+   
+ - PID controller is a model free controller, i.e. it does not use a model of the car. Could you explain the pros and cons of this type of controller?      
+    
+    Pros:
+    1. It is a conceptually simple controller that can be applied to many different problems without changes. Creating an initial version of the controller for a new problem is easy, expert knowledge is required about the underlying system, and the parameters to be tuned are general and easy to understand.      
+    2. PID controller can run in real-time making it idealized for self-driving cars no need to understand the system, adapted to a complex system, computationally more efficient.     
+    
+    
+    Cons:
+    1. Uncertainty of the controller.       
+    2. Difficult interpretation of the controller’s behaviour, cannot predict how the system will react to an unknown situation.      
+    3. Tuning or learning the controller using data can be slow.        
+    
+    
 
 
 ### Tips:
