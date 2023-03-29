@@ -62,6 +62,10 @@ The function pid is called in [main.cpp](https://github.com/udacity/nd013-c6-con
 Complete the TODO in the [pid_controller.h](https://github.com/udacity/nd013-c6-control-starter/blob/master/project/pid_controller/pid_controller.h) and [pid_controller.cpp](https://github.com/udacity/nd013-c6-control-starter/blob/master/project/pid_controller/pid_controller.cpp).
 
 Run the simulator and see in the desktop mode the car in the CARLA simulator. Take a screenshot and add it to your report. The car should not move in the simulation.
+
+  We can see that the car did not move in the following image:
+  ![image](https://user-images.githubusercontent.com/28135189/228407278-f3c7a561-c5da-4c4f-a74b-531a50e01b74.png)
+
 ### Step 2: PID controller for throttle:
 1) In [main.cpp](https://github.com/udacity/nd013-c6-control-starter/blob/master/project/pid_controller/main.cpp), complete the TODO (step 2) to compute the error for the throttle pid. The error is the speed difference between the actual speed and the desired speed.
 
